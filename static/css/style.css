@@ -1,0 +1,260 @@
+
+/* Dark Purple & Violet Recruitment Portal Theme */
+
+:root {
+  --page-bg: #100b1c;
+  --card-bg: #1c1430;
+  --surface-bg: #261b40;
+  --purple: #8b5cf6;
+  --violet: #a78bfa;
+  --text: #f5f3ff;
+  --muted: #c4b5d9;
+  --border: #3b2b57;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--text);
+}
+
+h1, h2, h3, h4, h5, h6, label {
+  color: var(--text);
+}
+
+.hero {
+  background: linear-gradient(135deg, #4c1d95, #7c3aed, #c026d3);
+  color: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(139, 92, 246, .18);
+}
+
+.card {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.card-header {
+  background: var(--surface-bg);
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+
+.form-control, .form-select {
+  min-height: 44px;
+  background: #171027;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.form-control:focus, .form-select:focus {
+  background: #201633;
+  color: white;
+  border-color: var(--violet);
+  box-shadow: 0 0 0 .2rem rgba(139, 92, 246, .2);
+}
+
+.form-control::placeholder {
+  color: #a99abb;
+}
+
+.form-select option {
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  border-color: var(--purple);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #6d28d9, #9333ea);
+  border-color: var(--violet);
+}
+
+.btn-outline-primary {
+  color: var(--violet);
+  border-color: var(--purple);
+}
+
+.btn-outline-primary:hover {
+  background: var(--purple);
+  color: white;
+}
+
+a {
+  color: var(--violet);
+}
+
+a:hover {
+  color: #e9d5ff;
+}
+
+.text-muted, .form-text {
+  color: var(--muted) !important;
+}
+
+.stat-card {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 .125rem .5rem rgba(0, 0, 0, .2);
+}
+
+.stat-card h2 {
+  color: var(--violet);
+  margin: 6px 0 0;
+  font-weight: 700;
+}
+
+.status-applied { background: #7c3aed; }
+.status-shortlisted { background: #047857; }
+.status-interview { background: #9333ea; }
+.status-rejected { background: #be123c; }
+
+.table {
+  vertical-align: middle;
+  color: var(--text);
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--text);
+  --bs-table-border-color: var(--border);
+}
+
+.table thead th {
+  background: var(--surface-bg);
+  color: var(--violet);
+}
+
+.table-hover tbody tr:hover {
+  --bs-table-hover-bg: #261b40;
+  --bs-table-hover-color: white;
+}
+
+footer {
+  color: var(--muted);
+  border-color: var(--border) !important;
+}
+
+.alert-info {
+  background: #24183c;
+  color: #e9ddff;
+  border-color: #5b3b88;
+}
+
+.pre-line {
+  white-space: pre-line;
+}
+
+.tracking {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.tracking-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  color: var(--muted);
+}
+
+.tracking-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  background: var(--border);
+  top: 9px;
+  left: 55%;
+  width: 90%;
+  z-index: 0;
+}
+
+.tracking-dot {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin: 0 auto 8px;
+  background: #49345f;
+  border: 3px solid #342346;
+}
+
+.tracking-step.complete .tracking-dot,
+.tracking-step.current .tracking-dot {
+  background: var(--purple);
+  border-color: #c4b5fd;
+}
+
+.tracking-step.current {
+  color: var(--violet);
+  font-weight: 700;
+}
+
+/* Optional dark-mode toggle support */
+html[data-theme="dark"] body {
+  background: #0b0713;
+  color: #f5f3ff;
+}
+
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .stat-card {
+  background: #160e25;
+  color: #f5f3ff;
+  border-color: #49345f;
+}
+
+html[data-theme="dark"] .form-control,
+html[data-theme="dark"] .form-select {
+  background: #100b1c;
+  color: #f5f3ff;
+  border-color: #49345f;
+}
+
+html[data-theme="dark"] .table,
+html[data-theme="dark"] .table td {
+  color: #f5f3ff;
+  border-color: #49345f;
+}
+
+html[data-theme="dark"] .table thead th {
+  background: #261b40;
+  color: #c4b5fd;
+}
+
+html[data-theme="dark"] .tracking-step:not(:last-child)::after {
+  background: #49345f;
+}
+
+html[data-theme="dark"] .tracking-dot {
+  background: #49345f;
+  border-color: #342346;
+}
+
+html[data-theme="dark"] .tracking-step.current {
+  color: #c4b5fd;
+}
+
+html[data-theme="dark"] .alert-info {
+  background: #24183c;
+  color: #e9ddff;
+  border-color: #5b3b88;
+}
+
+input, select, textarea {
+  max-width: 100%;
+}
+
+@media (max-width: 576px) {
+  .hero h1 { font-size: 2.1rem; }
+  .table { font-size: .9rem; }
+  .tracking-step small { font-size: .68rem; }
+  .tracking { gap: 2px; }
+}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard | RecruitHub{% endblock %}
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+<div><h1 class="fw-bold mb-0">Admin Dashboard</h1><p class="text-muted">Recruitment portal overview.</p></div>
+<div><a class="btn btn-primary" href="{% url 'job_create' %}">+ Add Job</a> <a class="btn btn-outline-primary" href="{% url 'application_list' %}">View Applications</a></div>
+</div>
+<div class="row g-3 mb-4">
+{% for label,value in stats %}
+{% endfor %}
+<div class="col-6 col-lg-3"><div class="stat-card"><small>Total Jobs</small><h2>{{ job_count }}</h2></div></div>
+<div class="col-6 col-lg-3"><div class="stat-card"><small>Active Jobs</small><h2>{{ active_job_count }}</h2></div></div>
+<div class="col-6 col-lg-3"><div class="stat-card"><small>Applications</small><h2>{{ application_count }}</h2></div></div>
+<div class="col-6 col-lg-3"><div class="stat-card"><small>Candidates</small><h2>{{ candidate_count }}</h2></div></div>
+</div>
+<div class="row g-3 mb-4">
+<div class="col-md-4"><div class="card border-0 shadow-sm"><div class="card-body"><h6>Shortlisted</h6><h3>{{ shortlisted_count }}</h3></div></div></div>
+<div class="col-md-4"><div class="card border-0 shadow-sm"><div class="card-body"><h6>Interview</h6><h3>{{ interview_count }}</h3></div></div></div>
+<div class="col-md-4"><div class="card border-0 shadow-sm"><div class="card-body"><h6>Rejected</h6><h3>{{ rejected_count }}</h3></div></div></div>
+</div>
+<div class="card mb-4"><div class="card-body"><h4 class="fw-bold">Application status overview</h4>{% for item in status_counts %}<div class="mb-3"><div class="d-flex justify-content-between"><span>{{ item.label }}</span><strong>{{ item.count }}</strong></div><div class="progress" role="progressbar" aria-label="{{ item.label }}"><div class="progress-bar" style="width: {{ item.width }}%"></div></div></div>{% endfor %}</div></div>
+<div class="card"><div class="card-body">
+<h4 class="fw-bold">Job Management</h4>
+<div class="table-responsive"><table class="table align-middle">
+<thead><tr><th>Job</th><th>Company</th><th>Deadline</th><th>Status</th><th>Applications</th><th>Actions</th></tr></thead>
+<tbody>
+{% for job in job_rows %}
+<tr>
+<td>{{ job.title }}</td><td>{{ job.company }}</td><td>{{ job.deadline }}</td>
+<td>{% if job.is_open %}<span class="badge text-bg-success">Open</span>{% else %}<span class="badge text-bg-secondary">Closed</span>{% endif %}</td>
+<td>{{ job.application_count }}</td>
+<td><a class="btn btn-sm btn-outline-primary" href="{% url 'job_edit' job.pk %}">Edit</a>
+<a class="btn btn-sm btn-outline-danger" href="{% url 'job_delete' job.pk %}">Delete</a></td>
+</tr>
+{% empty %}<tr><td colspan="6" class="text-center">No jobs found.</td></tr>{% endfor %}
+</tbody></table></div>
+<p class="text-muted mb-0">Use <a href="{% url 'application_list' %}">Applications</a> to review candidates and update their status.</p>
+</div></div>
+{% endblock %}

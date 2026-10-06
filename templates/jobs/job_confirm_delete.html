@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Delete Job | RecruitHub{% endblock %}
+{% block content %}
+<div class="card border-0 shadow-sm"><div class="card-body p-4">
+<h2>Delete Job</h2><p>Are you sure you want to delete <strong>{{ job.title }}</strong>?</p>
+<form method="post">{% csrf_token %}<button class="btn btn-danger">Yes, Delete</button><a class="btn btn-secondary" href="{% url 'dashboard' %}">Cancel</a></form>
+</div></div>
+{% endblock %}
